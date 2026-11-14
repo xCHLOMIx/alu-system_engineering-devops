@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Setting up nginx on a server
+sudo apt update
+sudo apt upgrade
 sudo apt install nginx
 sudo nginx
 sudo chmod 777 -R /var/www/html/index.nginx-debian.html
