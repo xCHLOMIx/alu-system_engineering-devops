@@ -3,5 +3,5 @@
 sudo apt install nginx
 sudo nginx
 sudo chmod 777 -R /var/www/html/index.nginx-debian.html
-sudo echo "Holberton School for the win" > /var/www/html/index.nginx-debian.html
+sudo echo "Holberton School" > /var/www/html/index.nginx-debian.html
 sudo nginx -s reload
