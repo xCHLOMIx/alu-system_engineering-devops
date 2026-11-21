@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Adding page redirection
+sudo apt install nginx
+sudo chmod 777 -R /var/www/html/index.nginx-debian.html
+sudo chmod 777 -R /etc/nginx/sites-available/default
+sudo echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
+sudo nginx
+the_string='location \/redirect-me {\n		return 301 \/;\n	}'
+change='#location ~ \/\\.ht {'
+sudo sed -i "s/$change/$the_string/" /etc/nginx/sites-available/default
+sudo nginx -s reload
