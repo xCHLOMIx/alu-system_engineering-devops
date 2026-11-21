@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Adding 404 page
+sudo apt install nginx
+sudo chmod 777 -R /var/www/html/index.nginx-debian.html
+sudo chmod 777 -R /etc/nginx/sites-available/default
+sudo echo "Holberton School for the win!" | /var/www/html/index.nginx-debian.html
+sudo touch /var/www/html/404.html
+sudo chmod 777 /var/www/html/404.html
+sudo echo "Ceci n'est pas une page" > /var/www/html/404.html
+sudo nginx
+the_string='error_page 404 \/404.html;\n	location = \/404.html {\n		root \/var\/www\/html;\n	}'
+change='# pass PHP scripts to FastCGI server'
+sudo sed -i "s/$change/$the_string/" /etc/nginx/sites-available/default
+sudo nginx -s reload
