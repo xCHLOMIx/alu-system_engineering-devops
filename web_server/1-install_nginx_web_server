@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
-# Setting up nginx on a server
+#Setting up nginx on a server
 sudo apt -y install nginx
-echo "Holberton School for the win!" | sudo tee /usr/share/nginx/html/index.html
+nginx="events {}
+http {
+	server {
+		listen 80;
+		root /var/www/html/;
+		index index.html;
+	}
+}"
+echo $nginx > test
+echo "Holberton School for the win!" | sudo tee /var/www/html/index.html
+sudo chmod 777 -R /etc/nginx/nginx.conf
+sudo echo $nginx > /etc/nginx/nginx.conf
 sudo nginx
 sudo nginx -s reload
