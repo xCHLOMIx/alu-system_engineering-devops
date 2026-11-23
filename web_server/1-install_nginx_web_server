@@ -9,8 +9,8 @@ http {
 		index index.html;
 	}
 }"
-echo $nginx > test
-echo "Holberton School for the win!" | sudo tee /var/www/html/index.html
+sudo chmod 777 -R /var/www/html/index.html
+echo "Holberton School for the win!" > /var/www/html/index.html
 sudo chmod 777 -R /etc/nginx/nginx.conf
 sudo echo $nginx > /etc/nginx/nginx.conf
 sudo nginx
