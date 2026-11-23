@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Setting up nginx on a server
 sudo apt -y install nginx
-echo "Holberton School for the win!" | sudo tee /var/www/html/index.html
+echo "Holberton School for the win!" | sudo tee /usr/share/nginx/html/index.html
 sudo nginx
 sudo nginx -s reload
