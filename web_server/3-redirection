@@ -2,8 +2,8 @@
 # Adding page redirection
 sudo apt-get update
 sudo apt-get install -y nginx
-sudo echo "Holberton School for the win!" | /var/www/html/index.html
-the_string`='location \/redirect_me {\n		return 301 \/;\n	}'
+sudo echo "Holberton School for the win!" | sudo tee /var/www/html/index.html
+the_string='location \/redirect_me {\n		return 301 \/;\n	}'
 change='#location ~ \/\\.ht {'
 sudo sed -i "s/$change/$the_string/" /etc/nginx/sites-available/default
 sudo nginx
