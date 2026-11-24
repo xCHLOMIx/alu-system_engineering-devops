@@ -3,7 +3,9 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 sudo echo "Holberton School for the win!" | sudo tee /var/www/html/index.html
-sudo touch /var/www/html/index.html
+the_string1='location \/redirect_me {\n          return 301 \/;\n        }'
+change1='#location ~ \/\\.ht {'
+sudo sed -i "s/$change1/$the_string1/" /etc/nginx/sites-available/default
 sudo chmod 777 /var/www/html/404.html
 sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 the_string='error_page 404 \/404.html;\n	location = \/404.html {\n		root \/var\/www\/html;\n		index 404.html;\n	}'
