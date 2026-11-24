@@ -2,5 +2,5 @@
 # Installing haproxy
 sudo apt-get update
 sudo apt-get install -y haproxy
-sudo rm /etc/haproxy/haproxy.cfg
-echo -e "backend def_backend\n	balance roundrobin\n	server web-01 16.61.222.48\n	server web-02 13.40.98.188\nfrontend def_frontend\n	bind:*80\n	default_backend def_backend" | sudo tee test
+echo -e "backend def_backend\n	balance roundrobin\n	server web1 16.61.222.48\n	server web2 13.40.98.188\nfrontend def_frontend\n	bind *:80\n	default_backend def_backend" | sudo tee /etc/haproxy/haproxy.cfg
+haproxy
