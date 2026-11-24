@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
-# Adding 404 page
+# Adding page redirection
 sudo apt-get update
 sudo apt-get install -y nginx
 sudo echo "Holberton School for the win!" | sudo tee /var/www/html/index.html
-the_string1='location \/redirect_me {\n          return 301 \/;\n        }'
-change1='#location ~ \/\\.ht {'
-sudo sed -i "s/$change1/$the_string1/" /etc/nginx/sites-available/default
+the_string='location \/redirect_me {\n		return 301 \/;\n	}'
+change='#location ~ \/\\.ht {'
+sudo sed -i "s/$change/$the_string/" /etc/nginx/sites-available/default
+
+touch /var/www/html/404.html
 sudo chmod 777 /var/www/html/404.html
 sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-the_string='error_page 404 \/404.html;\n	location = \/404.html {\n		root \/var\/www\/html;\n		index 404.html;\n	}'
-change='# pass PHP scripts to FastCGI server'
-sudo sed -i "s/$change/$the_string/" /etc/nginx/sites-available/default
+the_string1='error_page 404 \/404.html;\n        location = \/404.html {\n               root \/var\/www\/html;\n       index 404.html;\n        }'
+change1='# pass PHP scripts to FastCGI server'
+sudo sed -i "s/$change1/$the_string1/" /etc/nginx/sites-available/default
 sudo nginx
