@@ -14,7 +14,7 @@ the_string1='error_page 404 \/404.html;\n        location = \/404.html {\n      
 change1='# pass PHP scripts to FastCGI server'
 sudo sed -i "s/$change1/$the_string1/" /etc/nginx/sites-available/default
 
-the_string2='add_header X-Served-By $hostname;'
+the_string2='add_header X-Served-By 03-$hostname;'
 change2='# Gzip Settings'
 sudo sed -i "s/$change2/$the_string2/" /etc/nginx/nginx.conf
 sudo nginx
