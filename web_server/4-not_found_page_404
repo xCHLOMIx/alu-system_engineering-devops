@@ -6,8 +6,7 @@ sudo echo "Holberton School for the win!" | sudo tee /var/www/html/index.nginx-d
 sudo touch /var/www/html/index.html
 sudo chmod 777 /var/www/html/404.html
 sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-sudo nginx
 the_string='error_page 404 \/404.html;\n	location = \/404.html {\n		root \/var\/www\/html;\n	}'
 change='# pass PHP scripts to FastCGI server'
 sudo sed -i "s/$change/$the_string/" /etc/nginx/sites-available/default
-sudo nginx -s reload
+sudo nginx
